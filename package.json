@@ -1,0 +1,19 @@
+{
+  "name": "game_ping_pong",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "tsc --watch",
+    "build": "tsc",
+    "start": "http-server -c-1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "typescript": "^5.1.6"
+  }
+}
