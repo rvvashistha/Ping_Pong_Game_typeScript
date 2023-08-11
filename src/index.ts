@@ -1,5 +1,5 @@
 import { state } from "./utils"
-import { Scores } from "./utils";
+import { Scores,Velocity,random } from "./utils";
 //DOM Nodes :-
 const board=document.querySelector(".board") as HTMLElement; 
 const ball=document.querySelector(".ball") as HTMLElement; 
@@ -42,10 +42,30 @@ class Game {
         if(event.key==="Enter"){
             this.state=state.STARTED;
             message.innerHTML="Game on!!"
+
+            requestAnimationFrame(()=>{
+                let velocity=this.getVelocity();
+                this.moveBall(velocity);
+            })
         }
        
         })
     }
+
+    getVelocity(){
+       return{
+        dx:random(3,8),
+        dy:random(3,8)
+       } as Velocity
+    }
+
+    moveBall(velocity:Velocity){
+        console.log(velocity)
+    }
+
+
+
+
 }
 
 export default Game

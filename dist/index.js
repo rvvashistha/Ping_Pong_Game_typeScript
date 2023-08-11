@@ -1,4 +1,5 @@
 import { state } from "./utils";
+import { random } from "./utils";
 //DOM Nodes :-
 var board = document.querySelector(".board");
 var ball = document.querySelector(".ball");
@@ -34,8 +35,21 @@ var Game = /** @class */ (function () {
             if (event.key === "Enter") {
                 _this.state = state.STARTED;
                 message.innerHTML = "Game on!!";
+                requestAnimationFrame(function () {
+                    var velocity = _this.getVelocity();
+                    _this.moveBall(velocity);
+                });
             }
         });
+    };
+    Game.prototype.getVelocity = function () {
+        return {
+            dx: random(3, 8),
+            dy: random(3, 8)
+        };
+    };
+    Game.prototype.moveBall = function (velocity) {
+        console.log(velocity);
     };
     return Game;
 }());
